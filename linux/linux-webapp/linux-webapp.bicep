@@ -3,8 +3,6 @@ param linuxFxVersion string
 // This should be in the format of "LANGUAGE|VERSION"
 // Ex. "PYTHON|3.8"
 param location string
-param repositoryUrl string
-param branch string
 param appServicePlanName string
 param webAppName string
 
