@@ -1,0 +1,11 @@
+az deployment group create \
+  --resource-group "$RESOURCE_GROUP" \
+  --template-file ./linux-webapp.bicep \
+  --parameters \
+    location="$LOCATION" \
+    sku="$SKU" \
+    linuxFxVersion="$LINUX_FX_VERSION" \
+    repositoryUrl="$REPOSITORY_URL" \
+    branch="$BRANCH" \
+    appServicePlanName="$APPSERVICE_PLAN_NAME" \
+    webAppName="$WEBAPP_NAME"
