@@ -26,17 +26,8 @@ resource appService 'Microsoft.Web/sites@2020-06-01' = {
     serverFarmId: appServicePlan.id
     siteConfig: {
       linuxFxVersion: linuxFxVersion
+      scmType: 'LocalGit'
     }
   }
 }
 
-// This can be changed to another deployment source as needed
-// Review the documentation here: https://learn.microsoft.com/en-us/azure/templates/microsoft.web/sites/sourcecontrols?tabs=bicep&pivots=deployment-language-bicep
-resource srcControls 'Microsoft.Web/sites/sourcecontrols@2021-01-01' = {
-  name: '${appService.name}/web'
-  properties: {
-    repoUrl: repositoryUrl
-    branch: branch
-    isManualIntegration: true
-  }
-}
