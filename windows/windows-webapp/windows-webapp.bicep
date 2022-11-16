@@ -7,7 +7,7 @@ resource appServicePlan 'Microsoft.Web/serverfarms@2020-06-01' = {
   name: appServicePlanName
   location: location
   properties: {
-    reserved: true
+    reserved: false
   }
   sku: {
     name: sku
@@ -21,7 +21,13 @@ resource appService 'Microsoft.Web/sites@2020-06-01' = {
     serverFarmId: appServicePlan.id
     siteConfig: {
       scmType: 'LocalGit'
-      nodeVersion: '~18'
+      nodeVersion: '18.3.0'
+      appSettings: [
+        {
+          name: 'WEBSITE_NODE_DEFAULT_VERSION'
+          value: '~18'
+        }
+      ]
     }
   }
 }
