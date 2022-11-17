@@ -1,6 +1,6 @@
 az deployment group create \
   --resource-group "$RESOURCE_GROUP" \
-  --template-file ./linux-custom-container.bicep \
+  --template-file ./windows-custom-container.bicep \
   --parameters \
     location="$LOCATION" \
     sku="$SKU" \
